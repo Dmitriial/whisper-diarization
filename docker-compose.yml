@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  nemo-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "18889:8888"
+    command: bash -c "jupyter-lab --ip 0.0.0.0 --allow-root ."
+    working_dir: /opt/whisper-diarization
+    volumes:
+      - .:/opt/whisper-diarization
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [ gpu ]

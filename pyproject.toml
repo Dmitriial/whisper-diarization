@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "whisper-diarization"
+version = "0.1.0"
+description = ""
+authors = ["Dmitrii K <d_kulik@wargaming.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+wget = "^3.2"
+cython = "^3.0.10"
+youtokentome = {git = "https://github.com/gburlet/YouTokenToMe.git", rev = "dependencies"}
+nemo-toolkit = {extras = ["asr"], version = "^1.23.0"}
+whisperx = {git = "https://github.com/m-bain/whisperX.git", rev = "78dcfaab51005aa703ee21375f81ed31bc248560"}
+deepmultilingualpunctuation = "^1.0.1"
+demucs = "^4.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
